@@ -37,12 +37,17 @@ router.get('/find/:num/', function(req, res, next) {
 })
 
 
-router.get('/find/:date/:month/:year', function(req, res, next) {
+router.get('/find/:date/:year', function(req, res, next) {
 
   console.log(req.params.Startdate);
   // let dateFormat = req.params.Startdate.split("-");
-  UserModel.find({createdDate:{ $gte:`${req.params.date}/${req.params.month}/${req.params.year}`}})
-  .then(res.send(data))
+  UserModel.find()
+  .then(data =>{
+    data.map(d =>{
+      let date = data.includes(`${req.params.date} ${req.params.year}`);
+      console.log(date);
+    })
+  })
 })
 
 module.exports = router;
