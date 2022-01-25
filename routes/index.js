@@ -30,7 +30,7 @@ router.get('/find/:num/', function(req, res, next) {
     
   // } catch (error) {
     UserModel.find().limit(req.params.num)
-    .then(data => res.send(data))
+    .then(data => res.json(data))
     
   // }
 
