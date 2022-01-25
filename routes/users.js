@@ -4,7 +4,7 @@ mongoose.connect("mongodb+srv://abhishek_chaturvedi:harshgangabnm@realmcluster.a
 
 let userSchema = mongoose.Schema({
   name : String ,
-  posts: [],
+  posts: [{}],
   createdDate : {
     type : String,
     default : Date()
